@@ -18,23 +18,25 @@ const LoginSignup = () => {
             <div className="unerline"></div>
         </div>
         <div className="inputs">
-            <div className="input">
+            {action==="Login" ? <div></div> : <div className="input">
                 <img src={user_icon} alt="" />
                 <input type="text" placeholder="name" />
-            </div>
+            </div> }
+           
             <div className="input">
                 <img src={email_icon} alt=""  />
                 <input type="email" placeholder="email id" />
             </div>
             <div className="input">
                 <img src={password_icon} alt=""  />
-                <input type="password" placeholde="password" />
+                <input type="password" placeholder="password" />
             </div>
         </div>
-        <div className="forgot-password">Lost password?<span>Click here</span></div>
+        {action==="Sign in" ? <div></div> : <div className="forgot-password">Lost password?<span>Click here</span></div>}
+        
         <div className="submit-container">       
-            <div className={action === "Login" ? "submit gray" : "submit"}>   Sign up</div>
-            <div className={action === "Sign up" ? "submit gray" : "submit"}>   Login</div>
+            <div className={action === "Login" ? "submit gray" : "submit"} onClick={() => {setAction("Sign in")}}>   Sign in</div>
+            <div className={action === "Sign in" ? "submit gray" : "submit"} onClick={() => {setAction("Login")}}>   Login</div>
         </div>
  
     </div>
